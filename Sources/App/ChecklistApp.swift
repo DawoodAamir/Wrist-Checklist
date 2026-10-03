@@ -37,6 +37,10 @@ struct ChecklistView: View {
             }.accessibilityElement(children: .combine)
           }
         }
+        Section {
+          Button("Add task", systemImage: "plus") { adding = true }.accessibilityIdentifier(
+            "addTask")
+        }
         if visible.isEmpty {
           ContentUnavailableView(
             archived ? "No archived items" : "A clear checklist", systemImage: "checklist",
@@ -69,8 +73,6 @@ struct ChecklistView: View {
           }
         }
         Section {
-          Button("Add task", systemImage: "plus") { adding = true }.accessibilityIdentifier(
-            "addTask")
           Toggle("Show archived", isOn: $archived)
           Text(model.syncing).font(.footnote).foregroundStyle(.secondary)
           Button("Retry sync") { model.retrySync() }

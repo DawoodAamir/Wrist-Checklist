@@ -6,7 +6,7 @@ import XCTest
     let app = XCUIApplication()
     app.launchEnvironment["CHECKLIST_TEST_STORE"] = UUID().uuidString
     app.launch()
-    XCTAssertTrue(app.buttons["addTask"].waitForExistence(timeout: 20))
+    XCTAssertTrue(app.buttons["addTask"].waitForExistence(timeout: 20), app.debugDescription)
     app.buttons["addTask"].tap()
     let title = app.textFields["taskTitle"]
     XCTAssertTrue(title.waitForExistence(timeout: 10))
