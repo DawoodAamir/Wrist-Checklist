@@ -35,8 +35,10 @@ import XCTest
     XCTAssertTrue(app.buttons["Mark incomplete: Check equipment"].waitForExistence(timeout: 15))
     #if os(watchOS)
       let completed = app.buttons["Mark incomplete: Check equipment"]
-      for _ in 0..<5 where !completed.isHittable { app.swipeDown() }
-      XCTAssertTrue(completed.isHittable, app.debugDescription)
+      completed.tap()
+      XCTAssertTrue(app.buttons["Complete: Check equipment"].waitForExistence(timeout: 10))
+      app.buttons["Complete: Check equipment"].tap()
+      XCTAssertTrue(completed.waitForExistence(timeout: 10))
     #endif
     let image = XCTAttachment(screenshot: app.screenshot())
     image.name = "Completed checklist"
