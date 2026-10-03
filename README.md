@@ -2,6 +2,12 @@
 
 Offline checklists for Apple Watch and iPhone, with recoverable archiving, paired-device reconciliation, iPhone reminders, and a Watch complication.
 
+## Preview
+
+![Completed task on Apple Watch](Docs/Watch.png)
+
+![Checklist on iPhone](Docs/Phone.png)
+
 ## Run
 
 Open **Wrist Checklist.xcodeproj** in Xcode 27. Select **Wrist Checklist** for iPhone or **Wrist Checklist Watch** for Apple Watch. Targets are iOS 27 and watchOS 27. Bundle IDs are `com.dd.wristchecklist`, `com.dd.wristchecklist.watchkitapp`, and `com.dd.wristchecklist.watchkitapp.complication`.
