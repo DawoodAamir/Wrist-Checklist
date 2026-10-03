@@ -8,12 +8,13 @@ import XCTest
     app.launch()
     XCTAssertTrue(app.buttons["addTask"].waitForExistence(timeout: 20), app.debugDescription)
     app.buttons["addTask"].tap()
-    let title = app.textFields["taskTitle"]
-    XCTAssertTrue(title.waitForExistence(timeout: 10))
     #if os(watchOS)
+      XCTAssertTrue(app.buttons["Check equipment"].waitForExistence(timeout: 10))
       app.buttons["Check equipment"].tap()
-      app.swipeUp()
+      for _ in 0..<4 where !app.buttons["Add"].isHittable { app.swipeUp() }
     #else
+      let title = app.textFields["taskTitle"]
+      XCTAssertTrue(title.waitForExistence(timeout: 10))
       title.tap()
       title.typeText("Check equipment")
     #endif
