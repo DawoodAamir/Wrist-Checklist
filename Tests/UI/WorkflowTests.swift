@@ -10,10 +10,12 @@ import XCTest
     app.buttons["addTask"].tap()
     let title = app.textFields["taskTitle"]
     XCTAssertTrue(title.waitForExistence(timeout: 10))
-    title.tap()
-    title.typeText("Check equipment")
     #if os(watchOS)
-      if app.buttons["Done"].exists { app.buttons["Done"].tap() }
+      app.buttons["Check equipment"].tap()
+      app.swipeUp()
+    #else
+      title.tap()
+      title.typeText("Check equipment")
     #endif
     app.buttons["Add"].tap()
     let complete = app.buttons["Complete: Check equipment"]

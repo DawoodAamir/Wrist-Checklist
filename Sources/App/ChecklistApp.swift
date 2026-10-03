@@ -98,6 +98,14 @@ struct AddTaskView: View {
   var body: some View {
     NavigationStack {
       Form {
+        #if os(watchOS)
+          Section("Quick tasks") {
+            ForEach(["Check equipment", "Pick up groceries", "Charge devices"], id: \.self) {
+              suggestion in
+              Button(suggestion) { title = suggestion }
+            }
+          }
+        #endif
         TextField("Task", text: $title).accessibilityIdentifier("taskTitle")
         TextField("Group (optional)", text: $group).accessibilityIdentifier("taskGroup")
         Text("Use the system keyboard or dictation to enter a task.").font(.footnote)

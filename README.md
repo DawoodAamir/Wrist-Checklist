@@ -30,3 +30,5 @@ bash Scripts/test-ui.sh watchOS
 ```
 
 [Verification](Docs/Verification.md) separates automated checks from paired-device checks. See [privacy](PRIVACY.md) and [contributing](CONTRIBUTING.md). MIT licensed.
+
+Watch quick tasks offer three editable starting points for fast entry. The Watch UI test verifies this path; keyboard and dictation entry require physical-device checks.
